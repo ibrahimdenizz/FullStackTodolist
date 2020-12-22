@@ -25,7 +25,7 @@ $app->get('/list/{user_id}', function (Request $request, Response $response,arra
 
             $user_id = htmlspecialchars($user_id);
 
-            $table_name = "todolist";
+            $table_name = "list";
 
             $query = "SELECT * FROM ". $table_name ." WHERE user_id = :user_id";
 
@@ -114,7 +114,7 @@ $app->post('/list', function (Request $request, Response $response) {
                 $user_id = htmlspecialchars($user_id);
                 $day_id = htmlspecialchars($day_id);
                 
-                $table_name = "todolist";
+                $table_name = "list";
                 
                 $query = "INSERT INTO " . $table_name . 
                 " (content,is_check,user_id,day_id) VALUES(:content,:is_check,:user_id,:day_id)";
@@ -172,7 +172,7 @@ $app->delete('/list/{id}', function (Request $request, Response $response,array 
         
         $id = htmlspecialchars($id);
 
-        $table_name = "todolist";
+        $table_name = "list";
         $query = "DElETE FROM ". $table_name . " WHERE id = :id";
         $stmt = $db->prepare($query);
         $stmt->bindValue(":id",$id,PDO::PARAM_INT);
@@ -227,7 +227,7 @@ $app->put('/list/{id}', function (Request $request, Response $response,array $ar
                     $content = htmlspecialchars($content);
                     $is_check = htmlspecialchars($is_check);
 
-                    $table_name = "todolist";
+                    $table_name = "list";
                     
                     $query = "UPDATE ". $table_name . " SET content = :content, is_check = :is_check WHERE id = :id";
                     
@@ -257,7 +257,7 @@ $app->put('/list/{id}', function (Request $request, Response $response,array $ar
                     $content = $data['content'];
                     $content = htmlspecialchars($content);
 
-                    $table_name = "todolist";
+                    $table_name = "list";
                     
                     $query = "UPDATE ". $table_name . " SET content = :content WHERE id = :id";
                     
@@ -286,7 +286,7 @@ $app->put('/list/{id}', function (Request $request, Response $response,array $ar
                     $is_check = $data['is_check'];
                     $is_check = htmlspecialchars($is_check);
                     
-                    $table_name = "todolist";
+                    $table_name = "list";
                     
                     $query = "UPDATE ". $table_name . " SET is_check = :is_check WHERE id = :id";
                     

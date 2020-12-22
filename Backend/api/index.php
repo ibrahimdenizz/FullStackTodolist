@@ -11,13 +11,13 @@ require "../src/config/db.php";
 $app = AppFactory::create();
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true, true, true);
-$app->setBasePath("/todolist/api");
+$app->setBasePath("/Backend/api");
 
 
 //Login routes
 require_once "../src/routes/auth.php";
 //todolist routes
-require_once "../src/routes/todolist.php";
+require_once "../src/routes/list.php";
 //register routes
 require_once "../src/routes/users.php";
 
